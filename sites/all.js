@@ -21,14 +21,19 @@ var SITE_LOOKUP = {
 
 _.each(SITE_LOOKUP, function(data, key) {
   var reg = new RegExp(key);
-  if (_.isObject(data)) {
-    if (window.location.hostname.match(reg)) {
-      window.tobitabi.set_selector(data.selector, data.cb);
-    }
-
-  } else {
-    if (window.location.hostname.match(reg)) {
-      window.tobitabi.set_selector(data);
-    }
+  if (window.location.hostname.match(reg)) {
+    // check if we are going to actually change this page by asking our parent script...]
+    chrome.runtime.sendMessage({atobify: key}, function(response) {
+      if (response.atobify) {
+        if (_.isObject(data)) {
+          window.tobitabi.set_selector(data.selector, data.cb);
+        } else {
+          window.tobitabi.set_selector(data);
+        }
+      }
+    });
+    
   }
 });
+
+window.tobitabi_sites = SITE_LOOKUP;

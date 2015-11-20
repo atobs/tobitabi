@@ -6,8 +6,20 @@
       "64": "icon.png"
     },
     "permissions": [
-    "tabs","<all_urls>"
+    "tabs","<all_urls>", "storage"
     ],
+    "page_action" : {
+      "default_icon": {
+        "38" : "icon.png"
+      },
+      "default_title": "tobi tabi"
+    },
+    "background": {
+      "scripts": [
+        "src/underscore-min.js",
+        "sites/all.js", "background.js" ],
+      "persistent": false
+    },
     "content_scripts": [
         {
           "matches": [

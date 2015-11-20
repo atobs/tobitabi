@@ -54,7 +54,5 @@ window.tobitabi = {
 
 
     replace_users_with_trips();
-
-
   }
 };
