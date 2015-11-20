@@ -2,6 +2,7 @@
     "name": "tobi tabi",
     "description": "atob the sites",
     "version": "0.1",
+    "icon" : "icon.png",
     "permissions": [
     "tabs","<all_urls>"
     ],
