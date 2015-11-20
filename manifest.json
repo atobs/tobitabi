@@ -1,0 +1,29 @@
+{
+    "name": "tobi tabi",
+    "description": "atob the sites",
+    "version": "0.1",
+    "permissions": [
+    "tabs","<all_urls>"
+    ],
+    "content_scripts": [
+        {
+        "matches": [
+            "http://reddit.com/*",
+            "https://reddit.com/*",
+            "http://*.reddit.com/*",
+            "https://*.reddit.com/*"
+            ],
+        "css": [
+          "tobitabi.css"
+        ],
+        "js": [
+          "src/underscore-min.js", "src/jquery.js", "src/tripcode.js", 
+          "src/md5.js",
+          "tobitabi.js",
+          "sites/reddit.js"
+        ]
+        }
+    ], 
+    "manifest_version":2
+}
+

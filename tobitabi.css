@@ -1,0 +1,11 @@
+.tobitabitrip div.tripcolor {
+  width: 20px; 
+  display: block;
+}
+
+.tobitabitrip {
+  height: 10px;
+  width: 80px;
+  display: inline-block;
+  overflow-y: hidden;
+}
