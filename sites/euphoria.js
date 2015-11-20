@@ -1,1 +1,1 @@
-window.tobitabi.set_selector(".nick");
+window.tobitabi.set_selector(".nick, .mention-nick");

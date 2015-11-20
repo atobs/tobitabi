@@ -2,7 +2,9 @@
     "name": "tobi tabi",
     "description": "atob the sites",
     "version": "0.1",
-    "icon" : "icon.png",
+    "icons" : {
+      "64": "icon.png"
+    },
     "permissions": [
     "tabs","<all_urls>"
     ],
@@ -19,7 +21,8 @@
             "src/underscore-min.js", "src/jquery.js", "src/tripcode.js",
             "src/md5.js",
             "tobitabi.js"
-          ]
+          ],
+          "run_at": "document_start"
         },
 
 
@@ -30,6 +33,7 @@
               "http://*.reddit.com/*",
               "https://*.reddit.com/*"
               ],
+          "run_at": "document_start",
           "js": [
             "sites/reddit.js"
           ]
@@ -39,6 +43,7 @@
               "http://*.euphoria.io/*",
               "https://*.euphoria.io/*"
               ],
+          "run_at": "document_start",
           "js": [
             "sites/euphoria.js"
           ]
@@ -48,6 +53,7 @@
               "http://*.facebook.com/*",
               "https://*.facebook.com/*"
               ],
+          "run_at": "document_start",
           "js": [
             "sites/facebook.js"
           ]

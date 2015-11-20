@@ -14,9 +14,15 @@ window.tobitabi = {
 
 
       var authorText = authorEl.text();
+
       if (!authorText) {
         authorEl.hide();
       }
+
+      // everyone loves those mentions...
+      authorText = authorText.replace(/@/g, "");
+      authorText = authorText.replace(/\/u\//g, "");
+
 
       authorEl.addClass("tobitabitrip");
       authorEl.attr("title", authorText);
