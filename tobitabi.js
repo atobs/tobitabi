@@ -1,5 +1,3 @@
-console.log("tobi tobi tabi tobi tabi tabi tobi tabi");
-
 window.tobitabi = {
   gen_tripcodes: function(els) {
     var genned = [];

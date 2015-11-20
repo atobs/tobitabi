@@ -20,43 +20,10 @@
           "js": [
             "src/underscore-min.js", "src/jquery.js", "src/tripcode.js",
             "src/md5.js",
-            "tobitabi.js"
+            "tobitabi.js",
+            "sites/all.js"
           ],
           "run_at": "document_start"
-        },
-
-
-
-
-        {
-          "matches": [
-              "http://*.reddit.com/*",
-              "https://*.reddit.com/*"
-              ],
-          "run_at": "document_start",
-          "js": [
-            "sites/reddit.js"
-          ]
-        },
-        {
-          "matches": [
-              "http://*.euphoria.io/*",
-              "https://*.euphoria.io/*"
-              ],
-          "run_at": "document_start",
-          "js": [
-            "sites/euphoria.js"
-          ]
-        },
-        {
-          "matches": [
-              "http://*.facebook.com/*",
-              "https://*.facebook.com/*"
-              ],
-          "run_at": "document_start",
-          "js": [
-            "sites/facebook.js"
-          ]
         }
     ],
     "manifest_version":2
