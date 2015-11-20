@@ -7,23 +7,51 @@
     ],
     "content_scripts": [
         {
-        "matches": [
-            "http://reddit.com/*",
-            "https://reddit.com/*",
-            "http://*.reddit.com/*",
-            "https://*.reddit.com/*"
-            ],
-        "css": [
-          "tobitabi.css"
-        ],
-        "js": [
-          "src/underscore-min.js", "src/jquery.js", "src/tripcode.js", 
-          "src/md5.js",
-          "tobitabi.js",
-          "sites/reddit.js"
-        ]
+          "matches": [
+              "http://*/*",
+              "https://*/*"
+              ],
+          "css": [
+            "tobitabi.css"
+          ],
+          "js": [
+            "src/underscore-min.js", "src/jquery.js", "src/tripcode.js",
+            "src/md5.js",
+            "tobitabi.js"
+          ]
+        },
+
+
+
+
+        {
+          "matches": [
+              "http://*.reddit.com/*",
+              "https://*.reddit.com/*"
+              ],
+          "js": [
+            "sites/reddit.js"
+          ]
+        },
+        {
+          "matches": [
+              "http://*.euphoria.io/*",
+              "https://*.euphoria.io/*"
+              ],
+          "js": [
+            "sites/euphoria.js"
+          ]
+        },
+        {
+          "matches": [
+              "http://*.facebook.com/*",
+              "https://*.facebook.com/*"
+              ],
+          "js": [
+            "sites/facebook.js"
+          ]
         }
-    ], 
+    ],
     "manifest_version":2
 }
 
