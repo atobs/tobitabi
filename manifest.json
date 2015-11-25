@@ -1,7 +1,8 @@
 {
-    "name": "tobi tabi",
-    "description": "atob the sites",
-    "version": "0.1",
+    "name": "tobi tabi, the ill informed perihelion",
+    "short_name" : "tobi tabi",
+    "description": "untob the internet",
+    "version": "0.1.3",
     "icons" : {
       "64": "icon.png"
     },

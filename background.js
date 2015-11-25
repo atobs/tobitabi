@@ -39,6 +39,6 @@ chrome.pageAction.onClicked.addListener(function() {
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      sendResponse({atobify: TO_TOB[CUR_HOSTNAME]});
+      sendResponse({atobify: !TO_TOB[CUR_HOSTNAME]});
     });
 

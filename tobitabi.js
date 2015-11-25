@@ -34,8 +34,16 @@ window.tobitabi = {
     return genned;
   }, 
   set_selector: function(selector, fixup_cb) {
+    function get_selected_elements() {
+
+      if (_.isFunction(selector)) {
+        return selector();
+      }
+
+      return $(selector);
+    }
     function replace_users_with_trips() {
-      var authors = $(selector);
+      var authors = get_selected_elements();
 
       var genned = window.tobitabi.gen_tripcodes(authors);
       fixup_cb && fixup_cb(genned);
@@ -45,8 +53,12 @@ window.tobitabi = {
 
     var last_length = -1;
     setInterval(function() {
-      var authors = $(selector);
-      if (authors.length !== last_length) {
+      var authors = get_selected_elements();
+      var tripped_authors = _.filter(authors, function(f) {
+        return !!$(f).data("tripcode");
+      });
+
+      if (authors.length !== last_length || tripped_authors.length != authors.length) {
         last_length = authors.length;
         replace_users_with_trips();
       }
