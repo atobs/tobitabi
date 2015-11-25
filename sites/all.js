@@ -38,6 +38,8 @@ var SITE_LOOKUP = {
           el.css("width", "50px");
         }
 
+        $(el).closest(".anchorContainer").find(".img").hide();
+
       });
     }
   }
