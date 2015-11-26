@@ -1,20 +1,20 @@
-function yc_news() {
-  return _.filter($("a"), function(a) {
-    if (!$(a).attr("href")) {
-      return;
-    }
-    return $(a).attr("href").indexOf("user") !== -1;
-  });
-}
-
 
 var SITE_LOOKUP = {
   ".*\.?8ch\.net": ".poster_id",
   ".*\.?euphoria\.io" : ".nick, .mention-nick",
   ".*\.?github\.com" : "[data-ga-click ~= 'target:actor'], .user-mention",
   ".*\.?reddit\.com" : ".author",
+  ".*\.?stackexchange\.com" : ".user-details a, .comment-user",
+  ".*\.?stackoverflow\.com" : ".user-details a, .comment-user",
   ".*\.?news\.ycombinator\.com" : {
-    selector: yc_news,
+    selector: function yc_news() {
+      return _.filter($("a"), function(a) {
+        if (!$(a).attr("href")) {
+          return;
+        }
+        return $(a).attr("href").indexOf("user") !== -1;
+      });
+    },
     cb: function(els) {
       _.each(els, function(el) {
         var scoreEl = $(el).closest(".subtext").find(".score");
@@ -45,23 +45,5 @@ var SITE_LOOKUP = {
   }
 
 };
-
-
-_.each(SITE_LOOKUP, function(data, key) {
-  var reg = new RegExp(key);
-  if (window.location.hostname.match(reg)) {
-    // check if we are going to actually change this page by asking our parent script...]
-    chrome.runtime.sendMessage({atobify: key}, function(response) {
-      if (response.atobify) {
-        if (_.isObject(data)) {
-          window.tobitabi.set_selector(data.selector, data.cb);
-        } else {
-          window.tobitabi.set_selector(data);
-        }
-      }
-    });
-    
-  }
-});
 
 window.tobitabi_sites = SITE_LOOKUP;

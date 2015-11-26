@@ -25,7 +25,7 @@ window.tobitabi = {
       authorEl.addClass("tobitabitrip");
       authorEl.attr("title", authorText);
       authorEl.empty(); 
-      var tripcode = window.md5(authorText);
+      var tripcode = md5(authorText);
       $(authorEl).data("tripcode", tripcode);
       window.tripcode.gen_tripcode(authorEl);
 
